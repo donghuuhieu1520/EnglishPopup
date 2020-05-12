@@ -23,7 +23,7 @@ namespace EnglishPopup
         private PopupNotifier popup;
         private SoundPlayer player;
         private int nextWord;
-        Random r;
+        private Random r;
 
         public Form1()
         {
