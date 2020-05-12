@@ -166,8 +166,7 @@ namespace EnglishPopup
             popup.TitleText = $"{w.MyWord} ({w.Type}) {w.Pron}";
             popup.ContentText = $@"{w.Meaning}
 Example:
-{w.Example}";
-            
+{w.Example.Replace("\\n", "\n")}";
             popup.Popup();
         }
 
