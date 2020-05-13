@@ -12,7 +12,7 @@ using EnglishPopup.util;
 
 namespace EnglishPopup
 {
-    public partial class Preferences : Form
+    public partial class Preferences : MetroFramework.Forms.MetroForm
     {
         private INIFile inif;
         private AppConfig conf;
@@ -33,7 +33,6 @@ namespace EnglishPopup
             inif.Write("0", "interval", numericUpDownInterval.Value.ToString());
             inif.Write("0", "delay", numericUpDownStill.Value.ToString());
             inif.Write("0", "sound", checkBoxSound.Checked.ToString());
-            inif.Write("0", "opacity", trackBarOpacity.Value.ToString());
             inif.Write("0", "random", checkBoxRandomOrder.Checked.ToString());
 
             Form1 parrent = this.ownerForm as Form1;
@@ -56,13 +55,11 @@ namespace EnglishPopup
                 decimal interval = (decimal)conf.Interval;
                 decimal still = (decimal)conf.Delay;
                 bool sound = conf.Sound;
-                int opacity = (int)conf.Opacity;
                 bool random = conf.Random;
 
                 numericUpDownInterval.Value = interval;
                 numericUpDownStill.Value = still;
                 checkBoxSound.Checked = sound;
-                trackBarOpacity.Value = opacity;
                 checkBoxRandomOrder.Checked = random;
             } catch
             {

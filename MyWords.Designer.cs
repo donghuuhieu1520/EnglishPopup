@@ -28,21 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MyWords));
             this.dataGridViewMyWords = new System.Windows.Forms.DataGridView();
-            this.buttonUpdate = new System.Windows.Forms.Button();
-            this.comboBoxType = new System.Windows.Forms.ComboBox();
-            this.dateTimePickerFrom = new System.Windows.Forms.DateTimePicker();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.dateTimePickerTo = new System.Windows.Forms.DateTimePicker();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.textBoxSearch = new System.Windows.Forms.TextBox();
-            this.buttonFind = new System.Windows.Forms.Button();
-            this.buttonClear = new System.Windows.Forms.Button();
             this.columnOrdinalNumber = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.columnWord = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.columnType = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -51,6 +39,18 @@
             this.columnExample = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.columnCreatedAt = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.columnUpdatedAt = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.comboBoxType = new System.Windows.Forms.ComboBox();
+            this.dateTimePickerFrom = new System.Windows.Forms.DateTimePicker();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.dateTimePickerTo = new System.Windows.Forms.DateTimePicker();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.buttonFind = new System.Windows.Forms.Button();
+            this.buttonClear = new System.Windows.Forms.Button();
+            this.buttonUpdate = new MetroFramework.Controls.MetroButton();
+            this.textBoxSearch = new MetroFramework.Controls.MetroTextBox();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewMyWords)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -70,23 +70,68 @@
             this.columnExample,
             this.columnCreatedAt,
             this.columnUpdatedAt});
-            this.dataGridViewMyWords.Location = new System.Drawing.Point(24, 82);
+            this.dataGridViewMyWords.Location = new System.Drawing.Point(23, 153);
             this.dataGridViewMyWords.Name = "dataGridViewMyWords";
             this.dataGridViewMyWords.Size = new System.Drawing.Size(623, 238);
             this.dataGridViewMyWords.TabIndex = 0;
             this.dataGridViewMyWords.CellBeginEdit += new System.Windows.Forms.DataGridViewCellCancelEventHandler(this.cellBeginEditHandler);
             this.dataGridViewMyWords.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this.cellEndEditHandler);
             // 
-            // buttonUpdate
+            // columnOrdinalNumber
             // 
-            this.buttonUpdate.Enabled = false;
-            this.buttonUpdate.Location = new System.Drawing.Point(572, 334);
-            this.buttonUpdate.Name = "buttonUpdate";
-            this.buttonUpdate.Size = new System.Drawing.Size(75, 23);
-            this.buttonUpdate.TabIndex = 2;
-            this.buttonUpdate.Text = "Update";
-            this.buttonUpdate.UseVisualStyleBackColor = true;
-            this.buttonUpdate.Click += new System.EventHandler(this.buttonUpdateClickHandler);
+            this.columnOrdinalNumber.DataPropertyName = "OrdinalNumber";
+            this.columnOrdinalNumber.HeaderText = "No.";
+            this.columnOrdinalNumber.Name = "columnOrdinalNumber";
+            this.columnOrdinalNumber.ReadOnly = true;
+            // 
+            // columnWord
+            // 
+            this.columnWord.DataPropertyName = "MyWord";
+            this.columnWord.HeaderText = "Word";
+            this.columnWord.Name = "columnWord";
+            // 
+            // columnType
+            // 
+            this.columnType.DataPropertyName = "Type";
+            this.columnType.HeaderText = "Type";
+            this.columnType.Name = "columnType";
+            this.columnType.Width = 70;
+            // 
+            // columnPron
+            // 
+            this.columnPron.DataPropertyName = "Pron";
+            this.columnPron.HeaderText = "Pron";
+            this.columnPron.Name = "columnPron";
+            // 
+            // columnMeaning
+            // 
+            this.columnMeaning.DataPropertyName = "Meaning";
+            this.columnMeaning.HeaderText = "Meaning";
+            this.columnMeaning.Name = "columnMeaning";
+            this.columnMeaning.Width = 150;
+            // 
+            // columnExample
+            // 
+            this.columnExample.DataPropertyName = "Example";
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.columnExample.DefaultCellStyle = dataGridViewCellStyle1;
+            this.columnExample.HeaderText = "Example";
+            this.columnExample.Name = "columnExample";
+            this.columnExample.Width = 160;
+            // 
+            // columnCreatedAt
+            // 
+            this.columnCreatedAt.DataPropertyName = "CreatedAt";
+            this.columnCreatedAt.HeaderText = "Created At";
+            this.columnCreatedAt.Name = "columnCreatedAt";
+            this.columnCreatedAt.ReadOnly = true;
+            // 
+            // columnUpdatedAt
+            // 
+            this.columnUpdatedAt.DataPropertyName = "UpdatedAt";
+            this.columnUpdatedAt.HeaderText = "Updated At";
+            this.columnUpdatedAt.Name = "columnUpdatedAt";
+            this.columnUpdatedAt.ReadOnly = true;
             // 
             // comboBoxType
             // 
@@ -147,7 +192,7 @@
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Controls.Add(this.dateTimePickerFrom);
             this.groupBox1.Controls.Add(this.label2);
-            this.groupBox1.Location = new System.Drawing.Point(24, 4);
+            this.groupBox1.Location = new System.Drawing.Point(23, 75);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(370, 63);
             this.groupBox1.TabIndex = 10;
@@ -166,23 +211,16 @@
             // groupBox2
             // 
             this.groupBox2.Controls.Add(this.textBoxSearch);
-            this.groupBox2.Location = new System.Drawing.Point(412, 4);
+            this.groupBox2.Location = new System.Drawing.Point(411, 75);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(176, 63);
             this.groupBox2.TabIndex = 11;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Search";
             // 
-            // textBoxSearch
-            // 
-            this.textBoxSearch.Location = new System.Drawing.Point(17, 30);
-            this.textBoxSearch.Name = "textBoxSearch";
-            this.textBoxSearch.Size = new System.Drawing.Size(135, 20);
-            this.textBoxSearch.TabIndex = 0;
-            // 
             // buttonFind
             // 
-            this.buttonFind.Location = new System.Drawing.Point(594, 8);
+            this.buttonFind.Location = new System.Drawing.Point(593, 79);
             this.buttonFind.Name = "buttonFind";
             this.buttonFind.Size = new System.Drawing.Size(53, 33);
             this.buttonFind.TabIndex = 12;
@@ -192,7 +230,7 @@
             // 
             // buttonClear
             // 
-            this.buttonClear.Location = new System.Drawing.Point(594, 47);
+            this.buttonClear.Location = new System.Drawing.Point(593, 118);
             this.buttonClear.Name = "buttonClear";
             this.buttonClear.Size = new System.Drawing.Size(53, 20);
             this.buttonClear.TabIndex = 13;
@@ -200,84 +238,48 @@
             this.buttonClear.UseVisualStyleBackColor = true;
             this.buttonClear.Click += new System.EventHandler(this.buttonClearClickedHandler);
             // 
-            // columnOrdinalNumber
+            // buttonUpdate
             // 
-            this.columnOrdinalNumber.DataPropertyName = "OrdinalNumber";
-            this.columnOrdinalNumber.HeaderText = "No.";
-            this.columnOrdinalNumber.Name = "columnOrdinalNumber";
-            this.columnOrdinalNumber.ReadOnly = true;
+            this.buttonUpdate.Enabled = false;
+            this.buttonUpdate.Location = new System.Drawing.Point(562, 404);
+            this.buttonUpdate.Name = "buttonUpdate";
+            this.buttonUpdate.Size = new System.Drawing.Size(84, 36);
+            this.buttonUpdate.TabIndex = 14;
+            this.buttonUpdate.Text = "Update";
+            this.buttonUpdate.Click += new System.EventHandler(this.buttonUpdateClickHandler);
             // 
-            // columnWord
+            // textBoxSearch
             // 
-            this.columnWord.DataPropertyName = "MyWord";
-            this.columnWord.HeaderText = "Word";
-            this.columnWord.Name = "columnWord";
-            // 
-            // columnType
-            // 
-            this.columnType.DataPropertyName = "Type";
-            this.columnType.HeaderText = "Type";
-            this.columnType.Name = "columnType";
-            this.columnType.Width = 70;
-            // 
-            // columnPron
-            // 
-            this.columnPron.DataPropertyName = "Pron";
-            this.columnPron.HeaderText = "Pron";
-            this.columnPron.Name = "columnPron";
-            // 
-            // columnMeaning
-            // 
-            this.columnMeaning.DataPropertyName = "Meaning";
-            this.columnMeaning.HeaderText = "Meaning";
-            this.columnMeaning.Name = "columnMeaning";
-            this.columnMeaning.Width = 150;
-            // 
-            // columnExample
-            // 
-            this.columnExample.DataPropertyName = "Example";
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.columnExample.DefaultCellStyle = dataGridViewCellStyle2;
-            this.columnExample.HeaderText = "Example";
-            this.columnExample.Name = "columnExample";
-            this.columnExample.Width = 160;
-            // 
-            // columnCreatedAt
-            // 
-            this.columnCreatedAt.DataPropertyName = "CreatedAt";
-            this.columnCreatedAt.HeaderText = "Created At";
-            this.columnCreatedAt.Name = "columnCreatedAt";
-            this.columnCreatedAt.ReadOnly = true;
-            // 
-            // columnUpdatedAt
-            // 
-            this.columnUpdatedAt.DataPropertyName = "UpdatedAt";
-            this.columnUpdatedAt.HeaderText = "Updated At";
-            this.columnUpdatedAt.Name = "columnUpdatedAt";
-            this.columnUpdatedAt.ReadOnly = true;
+            this.textBoxSearch.Location = new System.Drawing.Point(19, 27);
+            this.textBoxSearch.Name = "textBoxSearch";
+            this.textBoxSearch.Size = new System.Drawing.Size(138, 23);
+            this.textBoxSearch.TabIndex = 0;
             // 
             // MyWords
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(674, 370);
+            this.ClientSize = new System.Drawing.Size(674, 463);
+            this.Controls.Add(this.buttonUpdate);
             this.Controls.Add(this.buttonClear);
             this.Controls.Add(this.buttonFind);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
-            this.Controls.Add(this.buttonUpdate);
             this.Controls.Add(this.dataGridViewMyWords);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "MyWords";
+            this.Resizable = false;
+            this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
-            this.Text = "MyWords";
+            this.Style = MetroFramework.MetroColorStyle.Yellow;
+            this.Text = "My Words";
             this.Load += new System.EventHandler(this.loadAllWords);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewMyWords)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.groupBox2.ResumeLayout(false);
-            this.groupBox2.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -285,7 +287,6 @@
         #endregion
 
         private System.Windows.Forms.DataGridView dataGridViewMyWords;
-        private System.Windows.Forms.Button buttonUpdate;
         private System.Windows.Forms.ComboBox comboBoxType;
         private System.Windows.Forms.DateTimePicker dateTimePickerFrom;
         private System.Windows.Forms.Label label2;
@@ -296,7 +297,6 @@
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.Button buttonFind;
         private System.Windows.Forms.Button buttonClear;
-        private System.Windows.Forms.TextBox textBoxSearch;
         private System.Windows.Forms.DataGridViewTextBoxColumn columnOrdinalNumber;
         private System.Windows.Forms.DataGridViewTextBoxColumn columnWord;
         private System.Windows.Forms.DataGridViewTextBoxColumn columnType;
@@ -305,5 +305,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn columnExample;
         private System.Windows.Forms.DataGridViewTextBoxColumn columnCreatedAt;
         private System.Windows.Forms.DataGridViewTextBoxColumn columnUpdatedAt;
+        private MetroFramework.Controls.MetroTextBox textBoxSearch;
+        private MetroFramework.Controls.MetroButton buttonUpdate;
     }
 }

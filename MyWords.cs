@@ -13,7 +13,7 @@ using EnglishPopup.util;
 
 namespace EnglishPopup
 {
-    public partial class MyWords : Form
+    public partial class MyWords : MetroFramework.Forms.MetroForm
     {
         private INIFile inif;
         private AppConfig conf;

@@ -15,11 +15,10 @@ using EnglishPopup.util;
 
 namespace EnglishPopup
 {
-    public partial class Form1 : Form
+    public partial class Form1 : MetroFramework.Forms.MetroForm
     {
         private INIFile inif;
         private AppConfig conf;
-        private bool popupRunning;
         private PopupNotifier popup;
         private SoundPlayer player;
         private int nextWord;
@@ -30,20 +29,14 @@ namespace EnglishPopup
             r = new Random();
             nextWord = 1;
             player = new SoundPlayer(Properties.Resources.messenger);
-            popupRunning = false;
             popup = new PopupNotifier();
 
-            popup.Appear += delegate (object s, EventArgs ev)
+            popup.Appear += (s, ev) =>
             {
-                popupRunning = false;
                 timer1.Enabled = false;
                 if (conf.Sound) player.Play();
             };
-            popup.Disappear += delegate (object s, EventArgs ev)
-            {
-                popupRunning = true;
-                timer1.Enabled = true;
-            };
+            popup.Disappear += (s, e) => timer1.Enabled = true;
 
             popup.ContentPadding = new Padding(10);
             popup.TitlePadding = new Padding(10);
@@ -107,21 +100,24 @@ namespace EnglishPopup
 
         private void myWordsToolStripMenuItemClickHandler(object sender, EventArgs e)
         {
-            MyWords formMyWords = new MyWords();
-            formMyWords.ShowDialog(this);
-            formMyWords.Dispose();
+            using (MyWords formMyWords = new MyWords())
+            {
+                formMyWords.ShowDialog(null);
+                formMyWords.Dispose();
+            }
         }
 
         private void popupToolStripMenuItemClickedHandler(object sender, EventArgs e)
         {
-            Preferences formPref = new Preferences(this);
-            formPref.ShowDialog(this);
-            formPref.Dispose();
+            using (Preferences formPref = new Preferences(this))
+            {
+                formPref.ShowDialog(null);
+                formPref.Dispose();
+            }
         }
 
         private void buttonStartClickedHandler(object sender, EventArgs e)
         {
-            popupRunning = true;
             timer1.Enabled = true;
             Hide();
             notifyIcon1.BalloonTipIcon = ToolTipIcon.Info;
@@ -132,7 +128,6 @@ namespace EnglishPopup
 
         private void showApplication(object sender, EventArgs e)
         {
-            popupRunning = false;
             timer1.Enabled = false;
             Show();
         }
