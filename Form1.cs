@@ -169,5 +169,37 @@ Example:
         {
             MessageBox.Show("Written by Hieu Dong ^^\nVersion: 1.0\nContact: donghuuhieu1520@gmail.com", "About", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
+
+        private void ImportFromFileClickHandler(object sender, EventArgs e)
+        {
+            OpenFileDialog openFileDialog = new OpenFileDialog();
+            openFileDialog.Title = "Please select your word files";
+            openFileDialog.InitialDirectory = Environment.SpecialFolder.LocalApplicationData.ToString();
+            openFileDialog.Multiselect = false;
+            openFileDialog.Filter = "Configuration settings (*.ini)|*.ini";
+
+            var result = openFileDialog.ShowDialog(this);
+            if (result != DialogResult.OK)
+            {
+                return;
+            }
+
+            var tempInif = new INIFile(openFileDialog.FileName);
+            var tempConf= AppConfig.Load(tempInif);
+
+
+            int totalWordQuantity = conf.WordsQuantity + tempConf.WordsQuantity;
+            
+            for (int i = conf.WordsQuantity + 1; i <= totalWordQuantity; i++)
+            {
+                Word newWord = Word.Load(tempInif, i - conf.WordsQuantity);
+                newWord.Save(inif);
+            }
+
+            conf.WordsQuantity = totalWordQuantity;
+            conf.Save();
+
+            MessageBox.Show(this, "Import words from your file success!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+        }
     }
 }

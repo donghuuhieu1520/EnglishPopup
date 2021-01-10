@@ -68,6 +68,7 @@
             this.buttonExit = new MetroFramework.Controls.MetroButton();
             this.buttonAdd = new MetroFramework.Controls.MetroTile();
             this.buttonStart = new MetroFramework.Controls.MetroTile();
+            this.importFromFilesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.groupBox1.SuspendLayout();
             this.menuStrip1.SuspendLayout();
             this.contextMenuStrip1.SuspendLayout();
@@ -217,7 +218,8 @@
             // wordsToolStripMenuItem3
             // 
             this.wordsToolStripMenuItem3.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.showAllToolStripMenuItem1});
+            this.showAllToolStripMenuItem1,
+            this.importFromFilesToolStripMenuItem});
             this.wordsToolStripMenuItem3.Name = "wordsToolStripMenuItem3";
             this.wordsToolStripMenuItem3.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Alt | System.Windows.Forms.Keys.W)));
             this.wordsToolStripMenuItem3.Size = new System.Drawing.Size(53, 20);
@@ -226,7 +228,7 @@
             // showAllToolStripMenuItem1
             // 
             this.showAllToolStripMenuItem1.Name = "showAllToolStripMenuItem1";
-            this.showAllToolStripMenuItem1.Size = new System.Drawing.Size(129, 22);
+            this.showAllToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
             this.showAllToolStripMenuItem1.Text = "Show All...";
             this.showAllToolStripMenuItem1.Click += new System.EventHandler(this.myWordsToolStripMenuItemClickHandler);
             // 
@@ -397,6 +399,13 @@
             this.buttonStart.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.buttonStart.Click += new System.EventHandler(this.buttonStartClickedHandler);
             // 
+            // importFromFilesToolStripMenuItem
+            // 
+            this.importFromFilesToolStripMenuItem.Name = "importFromFilesToolStripMenuItem";
+            this.importFromFilesToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.importFromFilesToolStripMenuItem.Text = "Import from files";
+            this.importFromFilesToolStripMenuItem.Click += new System.EventHandler(this.ImportFromFileClickHandler);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -466,6 +475,7 @@
         private MetroFramework.Controls.MetroLabel metroLabel1;
         private MetroFramework.Controls.MetroTile buttonAdd;
         private MetroFramework.Controls.MetroTile buttonStart;
+        private System.Windows.Forms.ToolStripMenuItem importFromFilesToolStripMenuItem;
     }
 }
 
